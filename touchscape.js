@@ -221,7 +221,7 @@ function segment(rakeX, rakeY, a, rake, ev) {
   bLayer.push();
   bLayer.translate(rakeX, rakeY);
   bLayer.rotate(a);
-  bLayer.scale((getPressure(ev)/2)+0.5);
+  bLayer.scale((getPressure(ev)/1.5)+0.5);
   bLayer.image(rake, 0, 0, 0, 0);
   bLayer.pop();
 }
