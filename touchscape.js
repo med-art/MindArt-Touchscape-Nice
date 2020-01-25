@@ -167,6 +167,7 @@ function draw() {
 
 function moved(ev) {
   if (introState === 3) {
+    ev.preventDefault();
     bLayer.blendMode(BLEND);
     if (bool_button1 === 0) {
       dx = winMouseX - rake3X;
@@ -176,6 +177,7 @@ function moved(ev) {
       rake3Y = winMouseY - (sin(angle1) * (segLength / 2));
       segment(rake3X, rake3Y, angle1, img_brush, ev)
       // reference for brush offset at https://p5js.org/examples/interaction-follow-1.html
+      return false;
     }
 
     if (bool_button1 === 1) {
