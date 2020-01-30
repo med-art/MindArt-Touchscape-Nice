@@ -11,6 +11,7 @@ let audio;
 let hMax, lMax;
 let driftX, driftY;
 let inverter = 1;
+let isMousedown = 0;
 
 function preload() {
   //load all brush assets and background
@@ -38,6 +39,12 @@ function setup() {
   }
   canvas.addEventListener('touchmove', moved);
   canvas.addEventListener('mousemove', moved);
+   canvas.addEventListener('touchstart', touchdown);
+ canvas.addEventListener('mousedown', touchdown);
+  canvas.addEventListener('touchend', touchstop);
+  canvas.addEventListener('touchleave', touchstop);
+  canvas.addEventListener('mouseup', touchstop);
+
 }
 
 function rotateWindow() {
@@ -118,7 +125,18 @@ function draw() {
   }
 }
 
+function touchdown(ev){
+isMousedown = 1;
+}
+
+function touchstop(ev){
+  isMousedown = 0;
+}
+
 function moved(ev) {
+
+if (!isMousedown) return;
+
   if (introState === 3) {
     ev.preventDefault();
     bLayer.blendMode(BLEND);
