@@ -27,6 +27,7 @@ function setup() {
   textLayer = createGraphics(windowWidth, windowHeight);
   introLayer = createGraphics(windowWidth, windowHeight);
   introLayer.fill(255, 5);
+  introLayer.blendMode(BLEND);
   pixelDensity(1); // effectively ignores retina displays
   colorMode(HSB, 360, 100, 100, 1.0);
   calcDimensions();
@@ -113,7 +114,7 @@ function draw() {
       textLayer.text(introText[slide - 1], width / 2, (height / 6) * (slide));
     }
     image(textLayer, 0, 0, width, height);
-    introLayer.blendMode(BLEND);
+
 
     introLayer.noStroke();
     introBrush(driftX, driftY);
@@ -173,7 +174,8 @@ function moved(ev) {
       slide++;
       slideShow();
     } else if (slide > 0) {
-      introLayer.blendMode(BLEND);
+
+
 
       introLayer.noStroke();
 
