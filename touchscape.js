@@ -69,10 +69,9 @@ function stretchWindow() {
 }
 
 function sizeWindow() {
-  resizeCanvas(windowWidth, windowHeight);
-  canvas.width = window.innerWidth;
-  canvas.height =  window.innerHeight;
-  image(img_background, 0, 0, windowWidth, windowHeight);
+// canvas.width = window.innerWidth;
+  // canvas.height =  window.innerHeight;
+  image(img_background, 0, 0, width, height);
   if (width < height) {
     currentOrientation = "portrait";
   } else {
@@ -187,7 +186,7 @@ function reset() {
 }
 
 function windowResized() {
-
+  resizeCanvas(windowWidth, windowHeight);
   sizeWindow();
 
   if (introState === 3) {
