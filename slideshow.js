@@ -11,7 +11,7 @@ let startButton;
 function slideShow() {
   if (slide === 0) {
     background(246, 84, 96);
-    introLayer.background(70, 158, 222, 255);
+    introLayer.background(60, 150, 255, 255);
     startButton = createButton(introText[0]);
     startButton.class("startButton");
     startButton.position((width / 2) - (12 * vMax), (height / 2) - (4 * vMax));

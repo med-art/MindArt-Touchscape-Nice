@@ -39,8 +39,8 @@ function setup() {
   }
   canvas.addEventListener('touchmove', moved);
   canvas.addEventListener('mousemove', moved);
-   canvas.addEventListener('touchstart', touchdown);
- canvas.addEventListener('mousedown', touchdown);
+  canvas.addEventListener('touchstart', touchdown);
+  canvas.addEventListener('mousedown', touchdown);
   canvas.addEventListener('touchend', touchstop);
   canvas.addEventListener('touchleave', touchstop);
   canvas.addEventListener('mouseup', touchstop);
@@ -69,7 +69,7 @@ function stretchWindow() {
 }
 
 function sizeWindow() {
-// canvas.width = window.innerWidth;
+  // canvas.width = window.innerWidth;
   // canvas.height =  window.innerHeight;
   image(img_background, 0, 0, width, height);
   if (width < height) {
@@ -86,7 +86,7 @@ function sizeWindow() {
   segLength = width / 15;
   calcDimensions();
 
-  img_rake.resize(vMax*3, vMax*11);
+  img_rake.resize(vMax * 3, vMax * 11);
   textLayer.resizeCanvas(windowWidth, windowHeight);
 
   bLayer.tint(255, 190);
@@ -115,7 +115,8 @@ function draw() {
     introLayer.blendMode(BLEND);
     introLayer.fill(255, 5);
     introLayer.noStroke();
-    introLayer.ellipse(driftX, driftY, vMax * 15, vMax * 15);
+    introBrush(driftX, driftY);
+
     driftX = driftX + (random(0, 10)) * inverter;
     if (driftX <= 40 || driftX >= width - 40) {
       inverter = -inverter;
@@ -126,27 +127,27 @@ function draw() {
 }
 
 
-function touchdown(ev){
-isMousedown = 1;
+function touchdown(ev) {
+  isMousedown = 1;
 
 
-if (introState < 3) {
-  if (audio.isPlaying()) {} else {
-   audio.loop(8);
+  if (introState < 3) {
+    if (audio.isPlaying()) {} else {
+      audio.loop(8);
+    }
   }
-}
-if (slide === 0) {
-  startUp();
-}
-return false;
+  if (slide === 0) {
+    startUp();
+  }
+  return false;
 
 }
 
-function touchstop(ev){
+function touchstop(ev) {
   isMousedown = 0;
 }
 
-function startUp(){
+function startUp() {
   click.play();
   startButton.remove();
   slide++;
@@ -155,8 +156,8 @@ function startUp(){
 
 function moved(ev) {
 
-if (!isMousedown) return;
-    ev.preventDefault();
+  if (!isMousedown) return;
+  ev.preventDefault();
   if (introState === 3) {
 
     bLayer.blendMode(BLEND);
@@ -172,12 +173,25 @@ if (!isMousedown) return;
       slideShow();
     } else if (slide > 0) {
       introLayer.blendMode(BLEND);
-      introLayer.fill(255, 18);
+      introLayer.fill(255, 5);
       introLayer.noStroke();
-      introLayer.ellipse(winMouseX, winMouseY, vMax * 15, vMax * 15);
+
+      introBrush(mouseX, mouseY);
+
     }
   }
   return false;
+}
+
+function introBrush(_x, _y) {
+  for (i = 0; i < 15; i++) {
+
+
+    let randX = int(randomGaussian(-30, 30));
+    let randY = int(randomGaussian(-30, 30));
+    let randR = int(random(vMax, vMax * 12))
+    introLayer.ellipse(_x + randX, _y + randY, randR);
+  }
 }
 
 function segment(rakeX, rakeY, a, rake, ev) {
@@ -185,7 +199,7 @@ function segment(rakeX, rakeY, a, rake, ev) {
   bLayer.push();
   bLayer.translate(rakeX, rakeY);
   bLayer.rotate(a);
-  bLayer.scale(0.75);
+  bLayer.scale(0.87); // change this value to vary brush size manually
   // to enable pressure sensitivity - bLayer.scale((getPressure(ev) / 1.5) + 0.5)
   bLayer.image(rake, 0, 0, 0, 0);
   bLayer.pop();
@@ -194,7 +208,7 @@ function segment(rakeX, rakeY, a, rake, ev) {
 function resetTimeout() {
   setTimeout(reset, 50);
 }
-getPressure = function(ev) {
+getPressure = function (ev) {
   return ((ev.touches && ev.touches[0] && typeof ev.touches[0]["force"] !== "undefined") ? ev.touches[0]["force"] : 1.0);
 }
 
