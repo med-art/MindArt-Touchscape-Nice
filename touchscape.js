@@ -17,7 +17,7 @@ function preload() {
   //load all brush assets and background
   img_rake = loadImage('assets/rake2b.png');
   img_background = loadImage('assets/sand_01.jpg')
-  audio = loadSound('assets/audio_1.mp3');
+  audio = loadSound('assets/audio.mp3');
   click = loadSound('assets/click.mp3');
 }
 
@@ -188,7 +188,7 @@ function introBrush(_x, _y) {
   for (i = 0; i < 5; i++) {
     let randX = int(randomGaussian(-30, 30));
     let randY = int(randomGaussian(-30, 30));
-    let randR = int(random(vMax, vMax * 18))
+    let randR = int(random(vMax, vMax * 23))
     introLayer.ellipse(_x + randX, _y + randY, randR);
   }
 }
