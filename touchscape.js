@@ -44,7 +44,7 @@ function setup() {
   canvas.addEventListener('touchend', touchstop);
   canvas.addEventListener('touchleave', touchstop);
   canvas.addEventListener('mouseup', touchstop);
-  window.addEventListener('resize', windowResized);
+  canvas.addEventListener('resize', windowResized);
 
 
 }
