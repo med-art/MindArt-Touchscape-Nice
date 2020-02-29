@@ -92,8 +92,6 @@ function sizeWindow() {
   driftY = 0;
 }
 
-
-
 function draw() {
   if (introState === 3) {
     imageMode(CORNER);
@@ -136,9 +134,9 @@ function touchstop(ev){
 function moved(ev) {
 
 if (!isMousedown) return;
-
-  if (introState === 3) {
     ev.preventDefault();
+  if (introState === 3) {
+
     bLayer.blendMode(BLEND);
     dx = winMouseX - rakeX;
     dy = winMouseY - rakeY;
