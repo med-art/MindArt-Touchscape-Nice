@@ -44,6 +44,8 @@ function setup() {
   canvas.addEventListener('touchend', touchstop);
   canvas.addEventListener('touchleave', touchstop);
   canvas.addEventListener('mouseup', touchstop);
+  window.addEventListener('resize', windowResized);
+
 
 }
 
@@ -69,20 +71,21 @@ function stretchWindow() {
 
 function sizeWindow() {
   resizeCanvas(windowWidth, windowHeight);
+
   image(img_background, 0, 0, width, height);
-  // if (width < height) {
-  //   currentOrientation = "portrait";
-  // } else {
-  //   currentOrientation = "landscape";
-  // }
-  // if (currentOrientation === storedOrientation) {
-  //   stretchWindow();
-  // } else {
-  //   rotateWindow();
-  // }
-  // storedOrientation = currentOrientation;
-  // segLength = width / 15;
-  // calcDimensions();
+  if (width < height) {
+    currentOrientation = "portrait";
+  } else {
+    currentOrientation = "landscape";
+  }
+  if (currentOrientation === storedOrientation) {
+    stretchWindow();
+  } else {
+    rotateWindow();
+  }
+  storedOrientation = currentOrientation;
+  segLength = width / 15;
+  calcDimensions();
 
   img_rake.resize(vMax*3, vMax*11);
   textLayer.resizeCanvas(windowWidth, windowHeight);
