@@ -26,6 +26,7 @@ function setup() {
   bLayer = createGraphics(windowWidth, windowHeight);
   textLayer = createGraphics(windowWidth, windowHeight);
   introLayer = createGraphics(windowWidth, windowHeight);
+  introLayer.fill(255, 5);
   pixelDensity(1); // effectively ignores retina displays
   colorMode(HSB, 360, 100, 100, 1.0);
   calcDimensions();
@@ -113,7 +114,7 @@ function draw() {
     }
     image(textLayer, 0, 0, width, height);
     introLayer.blendMode(BLEND);
-    introLayer.fill(255, 5);
+
     introLayer.noStroke();
     introBrush(driftX, driftY);
 
@@ -173,7 +174,7 @@ function moved(ev) {
       slideShow();
     } else if (slide > 0) {
       introLayer.blendMode(BLEND);
-      introLayer.fill(255, 5);
+
       introLayer.noStroke();
 
       introBrush(mouseX, mouseY);
@@ -184,12 +185,10 @@ function moved(ev) {
 }
 
 function introBrush(_x, _y) {
-  for (i = 0; i < 15; i++) {
-
-
+  for (i = 0; i < 5; i++) {
     let randX = int(randomGaussian(-30, 30));
     let randY = int(randomGaussian(-30, 30));
-    let randR = int(random(vMax, vMax * 12))
+    let randR = int(random(vMax, vMax * 18))
     introLayer.ellipse(_x + randX, _y + randY, randR);
   }
 }
