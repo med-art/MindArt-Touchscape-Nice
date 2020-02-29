@@ -40,6 +40,8 @@ transform: translate(-50%, -50%);
   border-radius: 5vmax;
   width: 28vmax;
   height: 10vmax;
+
+  text-align: center;
 }
 
 .box {
