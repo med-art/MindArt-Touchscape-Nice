@@ -44,7 +44,7 @@ function setup() {
   canvas.addEventListener('touchend', touchstop);
   canvas.addEventListener('touchleave', touchstop);
   canvas.addEventListener('mouseup', touchstop);
-  canvas.addEventListener('resize', windowResized);
+  canvas.addEventListener("orientationchange", windowResized); // introduced to force OSX resize.
 
 
 }
@@ -71,7 +71,6 @@ function stretchWindow() {
 
 function sizeWindow() {
   resizeCanvas(windowWidth, windowHeight);
-
   image(img_background, 0, 0, width, height);
   if (width < height) {
     currentOrientation = "portrait";
