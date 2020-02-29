@@ -17,7 +17,7 @@ function preload() {
   //load all brush assets and background
   img_rake = loadImage('assets/rake2b.png');
   img_background = loadImage('assets/sand_01.jpg')
-  audio = loadSound('assets/audio.mp3');
+  audio = loadSound('assets/audio_1.mp3');
   click = loadSound('assets/click.mp3');
 }
 
@@ -165,7 +165,8 @@ function segment(rakeX, rakeY, a, rake, ev) {
   bLayer.push();
   bLayer.translate(rakeX, rakeY);
   bLayer.rotate(a);
-  bLayer.scale((getPressure(ev) / 1.5) + 0.5);
+  bLayer.scale(0.75);
+  // to enable pressure sensitivity - bLayer.scale((getPressure(ev) / 1.5) + 0.5)
   bLayer.image(rake, 0, 0, 0, 0);
   bLayer.pop();
 }
