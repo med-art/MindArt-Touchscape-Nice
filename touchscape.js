@@ -44,10 +44,7 @@ function setup() {
   canvas.addEventListener('touchend', touchstop);
   canvas.addEventListener('touchleave', touchstop);
   canvas.addEventListener('mouseup', touchstop);
-  window.addEventListener("orientationchange", function() {
-  	// Announce the new orientation number
-  	alert(screen.orientation);
-  }, false);
+
 
 }
 
@@ -75,7 +72,7 @@ function sizeWindow() {
   resizeCanvas(windowWidth, windowHeight);
   canvas.width = window.innerWidth;
   canvas.height =  window.innerHeight;
-  image(img_background, 0, 0, width, height);
+  image(img_background, 0, 0, windowWidth, windowHeight);
   if (width < height) {
     currentOrientation = "portrait";
   } else {
