@@ -30,13 +30,14 @@ transform: translate(-50%, -50%);
 
 
 .startButton {
+  -webkit-appearance: none:
   font-size: 5vmax;
   font-family: "AvenirNext";
   letter-spacing: 1px;
   font-weight: 700;
   background-color: transparent;
   color: white;
-  border: 5px, solid, white;
+  border: 20px, solid, white;
   border-radius: 5vmax;
   width: 28vmax;
   height: 10vmax;
