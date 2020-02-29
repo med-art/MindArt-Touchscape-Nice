@@ -46,6 +46,7 @@ transform: translate(-50%, -50%);
   border-style: solid;;
   border-radius: 5vmax;
   width: 28vmax;
+  padding: 0;
   height: 10vmax;
 
 }
