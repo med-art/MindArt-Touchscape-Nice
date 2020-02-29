@@ -32,20 +32,22 @@ transform: translate(-50%, -50%);
 .startButton {
   -webkit-appearance: none;
   -moz-appearance: none;
+  opacity: 1;
   appearance: none;
   font-size: 5vmax;
   font-family: "AvenirNext";
   letter-spacing: 1px;
   font-weight: 700;
+  text-align: center;
   background-color: transparent;
   color: white;
-  border-width: 20px;
+  border-width: 4px;
   border-color: white;
   border-style: solid;;
   border-radius: 5vmax;
   width: 28vmax;
   height: 10vmax;
-  text-align: center;
+
 }
 
 .box {
