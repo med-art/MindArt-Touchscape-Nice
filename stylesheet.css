@@ -26,14 +26,15 @@ transform: translate(-50%, -50%);
   border-radius: 0.7vmax;
   width: 13vmax;
   height: 4vmax;
+    touch-action: none;
 }
 
 
 .startButton {
   -webkit-appearance: none;
   -moz-appearance: none;
-  opacity: 1;
   appearance: none;
+  opacity: 1;
   font-size: 5vmax;
   font-family: "AvenirNext";
   letter-spacing: 1px;

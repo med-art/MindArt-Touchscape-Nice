@@ -6,20 +6,7 @@ let delayTime = 13000; // this is the for each slide change
 let introState = 0;
 let startButton;
 
-function mousePressed() {
-  if (introState < 3) {
-    if (audio.isPlaying()) {} else {
-     audio.loop(8);
-    }
-  }
-  if (slide === 0) {
-    click.play();
-    startButton.remove();
-    slide++;
-    slideShow();
-  }
-  return false;
-}
+
 
 function slideShow() {
   if (slide === 0) {
@@ -28,6 +15,7 @@ function slideShow() {
     startButton = createButton(introText[0]);
     startButton.class("startButton");
     startButton.position((width / 2) - (12 * vMax), (height / 2) - (4 * vMax));
+    startButton.mousePressed(startUp);
   }
   if (slide === introText.length) {
     textLayer.clear();

@@ -125,12 +125,32 @@ function draw() {
   }
 }
 
+
 function touchdown(ev){
 isMousedown = 1;
+
+
+if (introState < 3) {
+  if (audio.isPlaying()) {} else {
+   audio.loop(8);
+  }
+}
+if (slide === 0) {
+  startUp();
+}
+return false;
+
 }
 
 function touchstop(ev){
   isMousedown = 0;
+}
+
+function startUp(){
+  click.play();
+  startButton.remove();
+  slide++;
+  slideShow();
 }
 
 function moved(ev) {
