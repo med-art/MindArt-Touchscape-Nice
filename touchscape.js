@@ -44,7 +44,7 @@ function setup() {
   canvas.addEventListener('touchend', touchstop);
   canvas.addEventListener('touchleave', touchstop);
   canvas.addEventListener('mouseup', touchstop);
-  canvas.addEventListener("orientationchange", windowResized); // introduced to force OSX resize.
+  window.addEventListener("orientationchange", windowResized); // introduced to force OSX resize.
 
 
 }
