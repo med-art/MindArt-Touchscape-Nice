@@ -26,7 +26,7 @@ function setup() {
   bLayer = createGraphics(windowWidth, windowHeight);
   textLayer = createGraphics(windowWidth, windowHeight);
   introLayer = createGraphics(windowWidth, windowHeight);
-  introLayer.fill(255, 5);
+  introLayer.fill(255, 8);
   introLayer.blendMode(BLEND);
   introLayer.noStroke();
   pixelDensity(1); // effectively ignores retina displays
@@ -180,12 +180,11 @@ function moved(ev) {
 }
 
 function introBrush(_x, _y) {
-  for (i = 0; i < 3; i++) {
-    let randX = int(randomGaussian(-30, 30));
-    let randY = int(randomGaussian(-30, 30));
-    let randR = int(random(vMax, vMax * 25))
+    let randX = int(randomGaussian(-3, 3));
+    let randY = int(randomGaussian(-3, 3));
+    let randR = int(random(vMax*16, vMax * 20))
     introLayer.ellipse(_x + randX, _y + randY, randR);
-  }
+
 }
 
 function segment(rakeX, rakeY, a, rake, ev) {

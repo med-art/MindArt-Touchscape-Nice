@@ -10,7 +10,6 @@ let startButton;
 
 function slideShow() {
   if (slide === 0) {
-
     introLayer.background(60, 150, 255, 255);
     startButton = createButton(introText[0]);
     startButton.class("startButton");
