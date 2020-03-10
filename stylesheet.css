@@ -35,7 +35,7 @@ transform: translate(-50%, -50%);
   -moz-appearance: none;
   appearance: none;
   opacity: 1;
-  font-size: 5vmax;
+  font-size: 4vmax;
   font-family: "AvenirNext";
   letter-spacing: 1px;
   font-weight: 700;
@@ -46,7 +46,7 @@ transform: translate(-50%, -50%);
   border-color: white;
   border-style: solid;;
   border-radius: 5vmax;
-  width: 28vmax;
+  width: 40vmax;
   padding: 0;
   height: 10vmax;
 

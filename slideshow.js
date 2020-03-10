@@ -1,4 +1,4 @@
-let introText = ["Touchez", "Regardez", "Ecoutez"];
+let introText = ["Touchez et Ecoutez", "Regardez", "Dessinez"];
 let appCol = "#469ede"; // 70, 158, 222
 let slide = 4; // current app is starting at 4 to prevent any behaviour before first button press.
 // this is illogical, need to rephrase.
@@ -13,7 +13,7 @@ function slideShow() {
     introLayer.background(60, 150, 255, 255);
     startButton = createButton(introText[0]);
     startButton.class("startButton");
-    startButton.position((width / 2) - (12 * vMax), (height / 2) - (4 * vMax));
+    startButton.position((width / 2) - (20 * vMax), (height / 2) - (4 * vMax));
     startButton.mousePressed(startUp);
   }
   if (slide === introText.length) {
@@ -25,7 +25,7 @@ function slideShow() {
   } else if (slide < introText.length && slide > 0) {
     textLayer.clear();
     textLayer.fill(255, 5);
-    textLayer.textSize(vMax * 8);
+    textLayer.textSize(vMax * 7);
     textLayer.textAlign(CENTER, CENTER);
     textLayer.rectMode(CENTER);
     if (slide > 0) {
@@ -33,8 +33,7 @@ function slideShow() {
         delayTime = 10000;
       }
       slide++;
-      console.log(slide);
-      setTimeout(slideShow, delayTime);
+        setTimeout(slideShow, delayTime);
     }
   }
 }

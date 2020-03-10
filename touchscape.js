@@ -17,7 +17,7 @@ function preload() {
   //load all brush assets and background
   img_rake = loadImage('assets/rake2b.png');
   img_background = loadImage('assets/sand_01.jpg')
-  audio = loadSound('assets/audio.mp3');
+  audio = loadSound('assets/audio_01.mp3');
   click = loadSound('assets/click.mp3');
 }
 
@@ -112,7 +112,7 @@ function draw() {
     image(introLayer, 0, 0, width, height);
     blendMode(BLEND);
     if (slide > 0) {
-      textLayer.text(introText[slide - 1], width / 2, (height / 6) * (slide));
+      textLayer.text(introText[slide - 1], width / 2, (height / 3) * (slide - 1));
     }
     image(textLayer, 0, 0, width, height);
     introBrush(driftX, driftY);
@@ -130,10 +130,10 @@ function draw() {
 function touchdown(ev) {
   isMousedown = 1;
 
-
   if (introState < 3) {
+    console.log("TEST");
     if (audio.isPlaying()) {} else {
-      audio.loop(8);
+      audio.loop(1);
     }
   }
   if (slide === 0) {
@@ -151,6 +151,9 @@ function startUp() {
   click.play();
   startButton.remove();
   slide++;
+  // note touchdown needs to be after slide++, else infinite loop
+  // BUG: 
+  touchdown();
   slideShow();
 }
 
