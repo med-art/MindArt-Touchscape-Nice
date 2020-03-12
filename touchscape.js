@@ -14,7 +14,7 @@ let vMax, selector;
 let introText = ["Touchez et Ecoutez", "Regardez", "Dessinez"];
 let appCol = "#469ede"; // 70, 158, 222
 let slide = 4; // current app is starting at 4 to prevent any behaviour before first button press.
-let delayTime = 10000; // this is the for each slide change
+let delayTime = 12000; // this is the for each slide change
 let introComplete = 0;
 
 //DATA
@@ -81,12 +81,12 @@ function draw() {
     }
     image(textLayer, 0, 0, width, height);
     introBrush(driftX, driftY);
-    driftX = driftX + (random(0, 5.5)) * inverter;
+    driftX = driftX + (random(0, 3)) * inverter;
     if (driftX <= -40 || driftX >= width+40) {
       inverter = -inverter;
       driftX = driftX + (30 * inverter);
     }
-    driftY = driftY + (random(-0.5, 1));
+    driftY = driftY + (random(-0.5, 1.5));
   }
 }
 
