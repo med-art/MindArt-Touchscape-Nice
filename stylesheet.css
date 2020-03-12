@@ -22,11 +22,12 @@ transform: translate(-50%, -50%);
   background-color: #4e4e4e;
   color: white;
   border-width: 3;
-
   border-radius: 0.7vmax;
   width: 13vmax;
   height: 4vmax;
-    touch-action: none;
+  font-size: 1.7vmax;
+  height: 5vmax;
+  touch-action: none;
 }
 
 
@@ -56,5 +57,4 @@ transform: translate(-50%, -50%);
   border-width: 0;
   border-color: rgb(200, 200, 200);
   border-radius: 0.7vmax;
-
 }
