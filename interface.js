@@ -53,7 +53,7 @@ function slideShow() {
     textLayer.rectMode(CENTER);
     if (slide > 0) {
       if (slide === introText.length - 1) {
-        delayTime = delayTime + 5000;
+        delayTime = delayTime + 10000;
       }
       slide++;
       setTimeout(slideShow, delayTime);
