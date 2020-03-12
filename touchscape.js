@@ -81,12 +81,12 @@ function draw() {
     }
     image(textLayer, 0, 0, width, height);
     introBrush(driftX, driftY);
-    driftX = driftX + (random(0, 4)) * inverter;
+    driftX = driftX + (random(0, 3)) * inverter;
     if (driftX <= -40 || driftX >= width+40) {
       inverter = -inverter;
       driftX = driftX + (30 * inverter);
     }
-    driftY = driftY + (random(-0.5, 1.5));
+    driftY = driftY + (random(-0.5, 1));
   }
 }
 
