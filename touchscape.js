@@ -37,7 +37,7 @@ function setup() {
   introLayer = createGraphics(width, height);
   colorMode(HSB, 360, 100, 100, 1.0);
 
-  introLayer.fill(255, 3);
+  introLayer.fill(255, 30);
   introLayer.blendMode(BLEND);
   introLayer.noStroke();
 
