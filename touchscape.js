@@ -17,6 +17,10 @@ let slide = 4; // current app is starting at 4 to prevent any behaviour before f
 let delayTime = 13000; // this is the for each slide change
 let introComplete = 0;
 
+//DATA
+let pointStore;
+let lineStore;
+
 
 function preload() {
   //load all brush assets and background
@@ -52,6 +56,11 @@ function setup() {
   canvas.addEventListener('touchend', touchstop);
   canvas.addEventListener('touchleave', touchstop);
   canvas.addEventListener('mouseup', touchstop);
+
+  //DATA
+  pointStore = [];
+  lineStore = [];
+
 }
 
 function draw() {
@@ -91,6 +100,13 @@ function touchdown(ev) {
 
 function touchstop(ev) {
   isMousedown = 0;
+
+  //DATA
+  if (introComplete = 1) {
+    lineStore.push(pointStore);
+    pointStore = [];
+  }
+  //  console.log(lineStore);
 }
 
 function startUp() {
@@ -113,7 +129,17 @@ function moved(ev) {
     angle1 = atan2(dy, dx);
     rakeX = winMouseX - (cos(angle1) * segLength);
     rakeY = winMouseY - (sin(angle1) * segLength);
-    segment(rakeX, rakeY, angle1, img_rake, ev)
+
+    //DATA
+    pressure = getPressure(ev);
+    pointStore.push({
+      time: new Date().getTime(),
+      x: rakeX,
+      y: rakeY,
+      pressure: pressure
+    });
+
+    segment(rakeX, rakeY, angle1, img_rake, ev, pressure)
   } else {
     if (slide === 0) {
       slide++;
@@ -134,13 +160,13 @@ function introBrush(_x, _y) {
 
 }
 
-function segment(rakeX, rakeY, a, rake, ev) {
+function segment(rakeX, rakeY, a, rake, ev, pressure) {
   bLayer.imageMode(CENTER);
   bLayer.push();
   bLayer.translate(rakeX, rakeY);
   bLayer.rotate(a);
   bLayer.scale(0.87); // change this value to vary brush size manually
-  // to enable pressure sensitivity - bLayer.scale((getPressure(ev) / 1.5) + 0.5)
+  // to enable pressure sensitivity - bLayer.scale((pressure / 1.5) + 0.5)
   bLayer.image(rake, 0, 0, 0, 0);
   bLayer.pop();
 }
