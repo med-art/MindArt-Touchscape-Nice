@@ -82,7 +82,7 @@ function draw() {
     image(textLayer, 0, 0, width, height);
     introBrush(driftX, driftY);
     driftX = driftX + (random(0, 4)) * inverter;
-    if (driftX <= 0 || driftX >= width) {
+    if (driftX <= -40 || driftX >= width+40) {
       inverter = -inverter;
       driftX = driftX + (30 * inverter);
     }
