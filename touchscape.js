@@ -102,7 +102,7 @@ function touchstop(ev) {
   isMousedown = 0;
 
   //DATA
-  if (introComplete = 1) {
+  if (introComplete === 1) {
     lineStore.push(pointStore);
     pointStore = [];
   }
