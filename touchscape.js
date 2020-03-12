@@ -37,7 +37,7 @@ function setup() {
   introLayer = createGraphics(width, height);
   colorMode(HSB, 360, 100, 100, 1.0);
 
-  introLayer.fill(255, 8);
+  introLayer.fill(255, 3);
   introLayer.blendMode(BLEND);
   introLayer.noStroke();
 
@@ -153,11 +153,10 @@ function moved(ev) {
 }
 
 function introBrush(_x, _y) {
-  let randX = int(randomGaussian(-3, 3));
-  let randY = int(randomGaussian(-3, 3));
+  let randX = int(randomGaussian(-1, 1));
+  let randY = int(randomGaussian(-1, 1));
   let randR = int(random(vMax * 16, vMax * 20))
   introLayer.ellipse(_x + randX, _y + randY, randR);
-
 }
 
 function segment(rakeX, rakeY, a, rake, ev, pressure) {
